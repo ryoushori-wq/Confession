@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confession from Sebastian</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #FFFFE0, #FFFACD); /* Light yellow gradient */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .message {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            border: 5px solid #FFD700; /* Golden border */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            max-width: 650px;
+            font-size: 18px;
+            line-height: 1.6;
+            position: relative;
+        }
+        .message::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 25px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            z-index: -1;
+            opacity: 0.5;
+        }
+        .music-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 3;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 2px solid #FFD700;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hidden iframe for YouTube audio (autoplay attempt) -->
+    <iframe id="music" width="0" height="0" src="https://www.youtube.com/embed/P_APic96jvE?autoplay=1&mute=0&loop=1&playlist=P_APic96jvE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="display: none;"></iframe>
+
+    <!-- Manual play/pause button for music -->
+    <button class="music-button" onclick="toggleMusic()">Play/Pause Music</button>
+
+    <div class="container">
+        <div class="message">
+            <h1>Hi Charlotte,</h1>
+            <p>This might sound cringe or smth funny, but I just wanted to say na I really like you talaga. Even though we only met virtually online, I find you interesting and funny, and you always make me smile and laugh, I really like about you that concern ka sa'akin when something feels off. Halata naman siguro, pero sobrang torpe lang talaga ako.</p>
+            <p>Here I am now, finally having the courage to say what I really feel about you. Sorry if minsan weirdo ako kapag comfortable talaga ako sa isang tao, I say random stuff and do random things.</p>
+            <p>We’ve been through months of MU and I just wanted to ask if pwede manligaw. I still wanna get to know you better. If you reject me, it’s okay talaga. Sana hindi maging awkward and we can still be friends.</p>
+            <p>I swear many things will changed when naging manliligaw na me sayo. Yun lang, salamat.</p>
+            <p>- Sebastian</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMusic() {
+            const iframe = document.getElementById('music');
+            const src = iframe.src;
+            if (src.includes('autoplay=1')) {
+                iframe.src = src.replace('autoplay=1', 'autoplay=0');
+            } else {
+                iframe.src = src.replace('autoplay=0', 'autoplay=1');
+            }
+        }
+    </script>
+</body>
+</html>
